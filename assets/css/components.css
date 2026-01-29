@@ -1,0 +1,374 @@
+/* COMPONENTS.CSS
+   Estilos específicos para elementos de interface (Cards, Botões, Alertas).
+*/
+
+/* --- 1. CARDS (CARTÕES MODERNOS) --- */
+.card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1.75rem; /* Mais espaçamento interno */
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico suave */
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito Hover "Lift" */
+.card:hover {
+    transform: translateY(-8px); /* Levanta mais */
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(56, 189, 248, 0.3); /* Brilho subtil na borda */
+}
+
+/* Borda superior gradiente que aparece no hover (Efeito Gamer/Tech) */
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* System Cards (SGA, Canvas - Index) */
+.system-card {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+}
+
+.system-card .icon-lg {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    /* Gradiente no texto do ícone */
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Nav Cards (Menu Principal) */
+.nav-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Container de Ícones (Quadrados arredondados) */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px; /* Mais arredondado (estilo iOS/Mac) */
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.05), rgba(0, 51, 102, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.nav-card:hover .icon-box {
+    background: var(--primary-color);
+    color: #fff;
+    transform: rotate(-5deg) scale(1.1); /* Pequena animação no ícone */
+}
+
+/* Adaptação Dark Mode para Ícones */
+[data-theme="dark"] .icon-box {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--accent-color);
+}
+
+.nav-card:hover .icon-box {
+    /* No dark mode, o hover do ícone fica com a cor de destaque */
+    background: var(--accent-color);
+    color: #000;
+}
+
+.nav-card h3 { font-size: 1.2rem; margin-bottom: 0.3rem; font-weight: 700; }
+.nav-card p { font-size: 0.95rem; color: var(--text-secondary); }
+
+
+/* --- 2. BOTÕES (BUTTONS) --- */
+.btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--puc-blue) 0%, #0056b3 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+    border: none;
+}
+
+[data-theme="dark"] .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #0077cc 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3); /* Glow azul no escuro */
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 86, 179, 0.35);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+
+.btn-outline:hover {
+    border-color: var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.full-width {
+    width: 100%;
+    display: block;
+    margin-top: 1.5rem;
+}
+
+
+/* --- 3. ALERTAS (NOTIFICATIONS) --- */
+.alert-box {
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--radius);
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center; /* Centraliza verticalmente o ícone */
+    border: 1px solid transparent; /* Substitui a borda grossa lateral por borda fina total */
+    background-color: var(--bg-card); /* Fallback */
+}
+
+.alert-icon { 
+    font-size: 1.8rem; 
+    flex-shrink: 0;
+}
+
+.alert-content h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+.alert-content p { font-size: 0.95rem; opacity: 0.9; line-height: 1.5; }
+
+/* Tipos de Alerta Refinados */
+.alert-box.warning {
+    background-color: rgba(245, 158, 11, 0.08);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #b45309;
+}
+[data-theme="dark"] .alert-box.warning { color: #fbbf24; border-color: rgba(251, 191, 36, 0.2); }
+
+.alert-box.danger {
+    background-color: rgba(239, 68, 68, 0.08);
+    border-color: rgba(239, 68, 68, 0.3);
+    color: #b91c1c;
+}
+[data-theme="dark"] .alert-box.danger { color: #fca5a5; border-color: rgba(248, 113, 113, 0.2); }
+
+.alert-box.info {
+    background-color: rgba(59, 130, 246, 0.08);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #1d4ed8;
+}
+[data-theme="dark"] .alert-box.info { color: #93c5fd; border-color: rgba(147, 197, 253, 0.2); }
+
+.alert-box.success {
+    background-color: rgba(16, 185, 129, 0.08);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #047857;
+}
+[data-theme="dark"] .alert-box.success { color: #6ee7b7; border-color: rgba(110, 231, 183, 0.2); }
+
+
+/* --- 4. BARRA DE BUSCA (SEARCH) --- */
+.search-wrapper {
+    margin-top: -3.5rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    padding: 0 1rem;
+}
+
+.search-box {
+    background: var(--bg-card);
+    width: 100%;
+    max-width: 650px;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra mais difusa */
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.search-box:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15); /* Anel de foco */
+    transform: translateY(-2px);
+}
+
+.search-icon { color: var(--primary-color); margin-right: 15px; font-size: 1.2rem; }
+
+.search-box input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 5px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    outline: none;
+    font-family: var(--font-main);
+}
+
+
+/* --- 5. TABELAS (TABLES) --- */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 1.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.config-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    min-width: 600px;
+}
+
+.config-table th, .config-table td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.config-table th {
+    background-color: rgba(0,0,0,0.02);
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+[data-theme="dark"] .config-table th {
+    background-color: rgba(255,255,255,0.03);
+}
+
+.config-table tr:last-child td { border-bottom: none; }
+
+.config-table .highlight-cell {
+    color: var(--danger-color);
+    font-weight: 700;
+    background-color: rgba(239, 68, 68, 0.05);
+}
+
+
+/* --- 6. ELEMENTOS DIVERSOS --- */
+
+/* Listas com Check */
+.list-check li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.list-check li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-color); /* Check verde neon */
+    background: rgba(0, 230, 118, 0.1);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    background-color: rgba(0,0,0,0.05);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+[data-theme="dark"] .tag { background-color: rgba(255,255,255,0.1); color: var(--text-main); }
+
+
+/* Building Card Header */
+.building-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.building-number {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.highlight-card {
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.1);
+}
+
+.badge {
+    background-color: var(--accent-color);
+    color: #0b1120; /* Texto escuro para contraste no verde neon */
+    font-size: 0.65rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin-left: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+}

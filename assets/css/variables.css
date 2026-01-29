@@ -1,0 +1,72 @@
+/* VARIABLES.CSS
+    Centraliza todas as cores, fontes e configurações de tema.
+    Alterar aqui muda o site inteiro instantaneamente.
+*/
+
+/* Importação da fonte Outfit (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+    /* --- TIPOGRAFIA --- */
+    --font-main: 'Outfit', sans-serif; /* Fonte moderna, geométrica e tech */
+
+    /* --- PALETA INSTITUCIONAL PUC MINAS --- */
+    --puc-blue: #003366;       /* Azul Oficial */
+    --puc-red: #990000;        /* Vermelho Oficial */
+    --puc-silver: #A2A2A2;     /* Cinza Metálico */
+
+    /* --- PALETA IDENTIDADE D.A. (Tech & Moderno) --- */
+    --brand-green: #00FF88;    /* Verde Neon vibrante (Estilo Cyberpunk/Tech) */
+    --brand-dark: #0B1120;     /* Azul Noturno profundo (Estilo IDE/Editor de Código) */
+
+    /* --- VARIÁVEIS SEMÂNTICAS --- */
+    --primary-color: var(--puc-blue);
+    --secondary-color: var(--puc-red);
+    --accent-color: var(--brand-green);
+    
+    /* Cores de Feedback */
+    --success-color: #10B981;  /* Verde Sucesso (Emerald) */
+    --warning-color: #F59E0B;  /* Laranja Alerta (Amber) */
+    --danger-color: #EF4444;   /* Vermelho Erro (Red) */
+    --info-color: #3B82F6;     /* Azul Informação (Blue) */
+
+    /* --- TEMA CLARO (Moderno / Slate) --- */
+    --bg-body: #F8FAFC;        /* Cinza muito subtil (Slate-50), menos agressivo que branco */
+    --bg-card: #FFFFFF;        /* Fundo dos cartões */
+    --bg-header: rgba(255, 255, 255, 0.85); /* Translúcido para efeito de vidro (Glassmorphism) */
+    
+    --text-main: #1E293B;      /* Azul escuro (Slate-800) para melhor legibilidade */
+    --text-secondary: #64748B; /* Cinza médio (Slate-500) */
+    --text-inverse: #FFFFFF;   /* Texto em fundos escuros */
+
+    --border-color: #E2E8F0;   /* Linhas subtis (Slate-200) */
+    
+    /* --- EFEITOS VISUAIS & UI --- */
+    --radius: 16px;            /* Cantos mais arredondados e amigáveis */
+    --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); /* Sombra difusa e elegante */
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --glow: 0 0 15px rgba(0, 255, 136, 0.3); /* Brilho neon para destaques */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- TEMA ESCURO (DARK MODE "MIDNIGHT") --- */
+[data-theme="dark"] {
+    
+    /* Redefinindo Cores de Fundo (Estilo VS Code / Tailwind Dark) */
+    --bg-body: #0B1120;        /* Azul Profundo (Midnight) */
+    --bg-card: #1E293B;        /* Azul Acinzentado (Slate-800) */
+    --bg-header: rgba(30, 41, 59, 0.85); /* Translúcido */
+    
+    /* Redefinindo Textos */
+    --text-main: #F1F5F9;      /* Branco acinzentado (Slate-100) - não cansa a vista */
+    --text-secondary: #94A3B8; /* Cinza claro (Slate-400) */
+    
+    /* Ajuste de Bordas e Sombras */
+    --border-color: #334155;   /* Slate-700 */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    
+    /* Cores ajustadas para contraste no escuro */
+    --primary-color: #38BDF8;  /* Azul Ciano (Sky-400) - brilha mais no fundo escuro */
+    --secondary-color: #FF6B6B;/* Vermelho pastel */
+    --accent-color: #00FF88;   /* Verde Neon mantém-se vibrante */
+}

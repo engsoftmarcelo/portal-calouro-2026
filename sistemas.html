@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas e Acessos | DAES LOURDES</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="index.html" class="logo-container">
+            <img src="assets/img/logos/logoPNG.png" alt="Logo DAES Lourdes" class="logo-img">
+            <span class="logo-text">DAES LOURDES</span>
+        </a>
+        
+        <div class="nav-controls">
+            <button id="theme-btn" class="icon-btn" aria-label="Alternar Tema">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section hero-small">
+        <div class="hero-content">
+            <h1>Sistemas & Conectividade</h1>
+            <p>Aprenda a navegar no ecossistema digital da PUC Minas e configure seu Wi-Fi.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <div class="alert-box info">
+            <div class="alert-icon"><i class="fas fa-key"></i></div>
+            <div class="alert-content">
+                <h4>Regra de Ouro dos Logins</h4>
+                <p>Não confunda suas credenciais! Existem apenas dois tipos de acesso:</p>
+                <ul class="login-rules">
+                    <li><strong>SGA (Burocracia):</strong> Login é apenas o <code>NÚMERO</code> (Código de Pessoa).</li>
+                    <li><strong>Canvas/Wi-Fi (Microsoft):</strong> Login é o <code>EMAIL</code> (codigo@pucminas.br).</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="section-block" id="sga">
+            <div class="section-header">
+                <i class="fas fa-university icon-title sga-color"></i>
+                <h2 class="section-title">SGA - Sistema de Gestão Acadêmica</h2>
+            </div>
+            
+            <div class="content-card">
+                <p>O SGA é a "Secretaria Virtual". É aqui que sua vida legal na universidade acontece. Se não está no SGA, não é oficial.</p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <strong>Quadro de Horários:</strong> Confira aqui sua sala oficial. Lembre-se: na Praça da Liberdade, a sala pode mudar conforme o dia.
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <div>
+                            <strong>Financeiro:</strong> Emissão de boletos. A inadimplência bloqueia a renovação, mas não o acesso às aulas do semestre atual.
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <strong>Notas Oficiais:</strong> A nota do Canvas é provisória. A nota do SGA é a que vai para o histórico.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="https://www.pucminas.br/sgaalunos" target="_blank" class="btn btn-primary">Acessar SGA</a>
+                    <a href="https://sistemas.pucminas.br/SGAAluno4/RecuperarSenha" target="_blank" class="btn btn-outline">Esqueci a Senha</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block" id="canvas">
+            <div class="section-header">
+                <i class="fas fa-chalkboard-teacher icon-title canvas-color"></i>
+                <h2 class="section-title">Canvas & Microsoft 365</h2>
+            </div>
+
+            <div class="grid-2-col">
+                <div class="content-card">
+                    <h3><i class="fas fa-chalkboard"></i> Canvas LMS</h3>
+                    <p>Sua sala de aula virtual. Aqui você entrega trabalhos, vê slides e faz provas online.</p>
+                    <div class="alert-box warning" style="padding: 0.5rem; margin-top: 1rem;">
+                        <small><strong>Atenção:</strong> Verifique sempre a <strong>"Central de Avisos"</strong> e o <strong>"Catálogo dos Alunos"</strong> na disciplina da Coordenação.</small>
+                    </div>
+                    <hr>
+                    <p class="small-text"><strong>Dica Pro:</strong> Baixe o app "Canvas Student" no celular e ative as notificações para não perder prazos de T.I.</p>
+                    <a href="https://canvas.pucminas.br/" target="_blank" class="btn btn-primary full-width">Acessar Canvas</a>
+                </div>
+
+                <div class="content-card">
+                    <h3><i class="fab fa-microsoft"></i> Office 365 & Email</h3>
+                    <p>Você tem direito ao Pacote Office (Word, Excel) e 1TB no OneDrive gratuitamente.</p>
+                    <hr>
+                    <p class="small-text"><strong>Importante:</strong> A PUC só envia comunicados oficiais (estágios, avisos) para o seu Outlook (@pucminas.br). Verifique semanalmente.</p>
+                    <a href="https://outlook.office.com/mail/" target="_blank" class="btn btn-outline full-width">Acessar Email</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block" id="eduroam">
+            <div class="section-header">
+                <i class="fas fa-wifi icon-title"></i>
+                <h2 class="section-title">Wi-Fi Eduroam</h2>
+            </div>
+
+            <div class="content-card">
+                <p>A rede <strong>eduroam</strong> funciona na PUC e em universidades do mundo todo. A configuração exige atenção aos detalhes abaixo:</p>
+                
+                <div class="table-responsive">
+                    <table class="config-table">
+                        <thead>
+                            <tr>
+                                <th>Configuração</th>
+                                <th>Android / Windows</th>
+                                <th>iOS (iPhone)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>SSID (Nome)</strong></td>
+                                <td>eduroam</td>
+                                <td>eduroam</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Método EAP</strong></td>
+                                <td>PEAP</td>
+                                <td>Automático</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Autenticação Fase 2</strong></td>
+                                <td>MSCHAPv2</td>
+                                <td>Automático</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Certificado CA</strong></td>
+                                <td>Não validar / Usar do sistema</td>
+                                <td>Aceitar "Trust"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Domínio</strong></td>
+                                <td>pucminas.br (se pedir)</td>
+                                <td>N/A</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Identidade (Login)</strong></td>
+                                <td colspan="2" class="highlight-cell">codigo@pucminas.br (Obrigatório usar o @pucminas.br)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Senha</strong></td>
+                                <td colspan="2">Mesma do SGA/Portal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4><i class="fas fa-tools"></i> Problemas Comuns:</h4>
+                    <ul>
+                        <li><strong>"Conectado, sem internet":</strong> Desligue e ligue o Wi-Fi para trocar de antena (comum ao mudar de prédio).</li>
+                        <li><strong>Erro de Autenticação:</strong> Você provavelmente esqueceu o <code>@pucminas.br</code> no login ou sua senha expirou (troque no SGA).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block" id="suporte">
+            <h2 class="section-title">Matriz de Suporte Oficial</h2>
+            <div class="alert-box success">
+                <div class="alert-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="alert-content">
+                    <h4>Dados Atualizados (Guia Prático)</h4>
+                    <p>Abaixo estão os contatos diretos para resolver problemas sem pegar fila.</p>
+                </div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="config-table">
+                    <thead>
+                        <tr>
+                            <th>Problema</th>
+                            <th>Onde ir (Local)</th>
+                            <th>E-mail Direto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wi-Fi / Login / Canvas</strong></td>
+                            <td>Prédio 4 - 14º Andar (CRC)</td>
+                            <td><code>crclourdes@pucminas.br</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Matrícula / Documentos</strong></td>
+                            <td>Prédio 4 - Térreo (Atend. Integrado)</td>
+                            <td><code>atendimento.lourdes@pucminas.br</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Boletos / Financeiro</strong></td>
+                            <td>Prédio 4 - Térreo</td>
+                            <td><code>financeiro.lourdes@pucminas.br</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bolsas / FIES / PROUNI</strong></td>
+                            <td>Prédio 4 - Térreo (Apoio Comunitário)</td>
+                            <td><code>comunitario.lourdes@pucminas.br</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Coordenação do Curso</strong></td>
+                            <td>Prédio 6 - Sala de Coordenação</td>
+                            <td><code>engsoftware.praca@pucminas.br</code></td>
+                        </tr>
+                         <tr>
+                            <td><strong>Emergência / Saúde</strong></td>
+                            <td>Prédio 5 - Subsolo (Posto Médico)</td>
+                            <td><code>postomedico.lourdes@pucminas.br</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 DAES LOURDES - Engenharia de Software</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/navigation.js" defer></script>
+</body>
+</html>

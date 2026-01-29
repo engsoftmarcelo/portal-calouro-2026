@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal de Acolhimento ao Discente - Engenharia de Software PUC Minas Praça da Liberdade 2026.">
+    <title>DAES LOURDES | Portal Calouro 2026</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="index.html" class="logo-container">
+            <img src="assets/img/logos/logoPNG.png" alt="Logo DAES Lourdes" class="logo-img">
+            <span class="logo-text">DAES LOURDES</span>
+        </a>
+        
+        <div class="nav-controls">
+            <button id="theme-btn" class="icon-btn" aria-label="Alternar Tema">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button id="mobile-menu-btn" class="icon-btn mobile-only" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <img src="assets/img/logos/mascotePNG.png" alt="Mascote DAES" class="mascote-hero">
+            <h1>Bem-vindo, Calouro 2026!</h1>
+            <p>Seu guia definitivo para o 1º período na PUC Minas Praça da Liberdade.</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="search-wrapper">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="O que você procura? (ex: Grade, Salas...)">
+            </div>
+        </div>
+
+        <section class="section-block">
+            <h2 class="section-title">Sistemas Essenciais</h2>
+            <div class="grid-systems">
+                <a href="https://www.pucminas.br/sgaalunos" target="_blank" class="card system-card" data-system="sga">
+                    <i class="fas fa-university icon-lg"></i>
+                    <h3>SGA Aluno</h3>
+                    <p>Notas, Boletos e Matrícula</p>
+                </a>
+                
+                <a href="https://canvas.pucminas.br/" target="_blank" class="card system-card" data-system="canvas">
+                    <i class="fas fa-chalkboard-teacher icon-lg"></i>
+                    <h3>Canvas LMS</h3>
+                    <p>Aulas, Trabalhos e Slides</p>
+                </a>
+
+                <a href="https://outlook.office.com/mail/" target="_blank" class="card system-card" data-system="outlook">
+                    <i class="fas fa-envelope icon-lg"></i>
+                    <h3>Email Oficial</h3>
+                    <p>Comunicados da Reitoria</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2 class="section-title">Guia do Calouro</h2>
+            <div class="grid-nav">
+                
+                <a href="academico.html" class="card nav-card">
+                    <div class="icon-box"><i class="fas fa-book-open"></i></div>
+                    <div class="text-box">
+                        <h3>Vida Acadêmica</h3>
+                        <p>Grade Curricular, T.I. e Dicas de Estudo</p>
+                    </div>
+                </a>
+
+                <a href="campus.html" class="card nav-card">
+                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="text-box">
+                        <h3>Mapa da Unidade</h3>
+                        <p>Prédios 1, 3, 4 e Onde Comer na Savassi</p>
+                    </div>
+                </a>
+
+                <a href="beneficios.html" class="card nav-card">
+                    <div class="icon-box"><i class="fas fa-id-card"></i></div>
+                    <div class="text-box">
+                        <h3>Burocracia & Benefícios</h3>
+                        <p>Carteirinha, DNE e Wi-Fi Eduroam</p>
+                    </div>
+                </a>
+
+                <a href="sistemas.html" class="card nav-card">
+                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
+                    <div class="text-box">
+                        <h3>Tutoriais de Acesso</h3>
+                        <p>Como configurar o Eduroam e senhas</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 DAES LOURDES - Engenharia de Software - PUC Minas</p>
+            <p class="small-text">Desenvolvido por alunos, para alunos.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/theme.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+    <script src="assets/js/navigation.js" defer></script>
+</body>
+</html>
