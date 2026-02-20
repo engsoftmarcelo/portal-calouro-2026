@@ -1,5 +1,5 @@
 /* NAVIGATION.JS
-   Gerencia o Menu Mobile (Overlay) e Scroll Suave.
+   Gerencia o Menu Mobile (Overlay), Scroll Suave e Animações de Entrada.
    Cria o menu dinamicamente para não precisarmos editar o HTML de todas as páginas.
 */
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
 
-        // Estilos essenciais para o menu funcionar
+        // Estilos essenciais para o menu funcionar (com animações mais fluidas)
         const style = document.createElement('style');
         style.innerHTML = `
             #mobile-menu-overlay {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 background-color: var(--bg-body);
                 z-index: 2000;
                 transform: translateY(-100%); /* Escondido pra cima */
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico no menu */
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -55,11 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 color: var(--text-main);
                 font-weight: 700;
                 border-bottom: 1px solid var(--border-color);
-                transition: 0.2s;
+                transition: all 0.2s ease;
             }
             .menu-link:hover {
                 color: var(--primary-color);
                 background-color: rgba(0,0,0,0.02);
+                transform: scale(1.05); /* Leve pulo ao passar o mouse no menu */
             }
             .close-btn {
                 position: absolute;
@@ -70,6 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 font-size: 2rem;
                 color: var(--text-main);
                 cursor: pointer;
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+            .close-btn:hover {
+                transform: rotate(90deg) scale(1.2); /* Gira e aumenta o X ao fechar */
+                color: var(--danger-color);
             }
         `;
         document.head.appendChild(style);
@@ -119,20 +125,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- 3. ANIMAÇÃO DE ENTRADA DOS CARDS ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    // --- 3. ANIMAÇÃO DE ENTRADA (DINAMISMO EXTRA) ---
+    // Melhoramos o IntersectionObserver para dar um efeito mais "vivo" ao rolar a página
+    const observerOptions = {
+        threshold: 0.1, // Dispara quando 10% do elemento estiver visível
+        rootMargin: "0px 0px -30px 0px" // Dispara um pouco antes de aparecer totalmente
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
+                // Remove o delay se for mobile para não travar a experiência, 
+                // mas aplica um efeito de transição fluido
                 entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+                
+                // Descomente a linha abaixo se quiser que a animação aconteça SÓ na primeira vez que rolar
+                // observer.unobserve(entry.target);
+            } else {
+                // Reseta o estado quando sai da tela para animar de novo ao voltar
+                entry.target.style.opacity = 0;
+                entry.target.style.transform = 'translateY(30px) scale(0.95)';
             }
         });
-    });
+    }, observerOptions);
 
-    document.querySelectorAll('.card').forEach((card) => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+    // Aplica o observador não só nos cards, mas em títulos e alertas
+    document.querySelectorAll('.card, .section-title, .alert-box').forEach((el) => {
+        // Estado inicial invisível e levemente menor/abaixado
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(30px) scale(0.95)';
+        el.style.transition = 'opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        observer.observe(el);
     });
 });

@@ -5,6 +5,10 @@
 /* --- 1. RESET & BASE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+    scroll-behavior: smooth; /* Rolagem suave nativa */
+}
+
 body {
     background-color: var(--bg-body);
     color: var(--text-main);
@@ -78,6 +82,11 @@ img { max-width: 100%; display: block; }
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    transition: transform 0.3s ease; /* Animação adicionada */
+}
+
+.logo-container:hover {
+    transform: scale(1.03); /* Efeito de expansão ao passar o mouse */
 }
 
 .logo-img {
@@ -104,7 +113,11 @@ img { max-width: 100%; display: block; }
     border-radius: 50%;
     transition: var(--transition);
 }
-.icon-btn:hover { background-color: rgba(0,0,0,0.05); color: var(--primary-color); }
+.icon-btn:hover { 
+    background-color: rgba(0,0,0,0.05); 
+    color: var(--primary-color);
+    transform: rotate(15deg); /* Dinamismo no hover dos ícones */
+}
 
 /* --- 4. HERO SECTION (Área de Destaque) --- */
 .hero-section {
@@ -113,6 +126,9 @@ img { max-width: 100%; display: block; }
         radial-gradient(circle at top right, rgba(0, 255, 136, 0.1) 0%, transparent 40%),
         radial-gradient(circle at bottom left, rgba(0, 51, 102, 0.4) 0%, transparent 50%),
         linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    
+    background-size: 200% 200%; /* Preparando para o efeito de movimento */
+    animation: bgPan 15s ease infinite; /* Animação de fundo dinâmica */
     
     color: #fff;
     padding: 3rem 1.5rem 5rem;
@@ -177,8 +193,20 @@ img { max-width: 100%; display: block; }
     .mascote-hero { max-height: 140px; } /* Mascote menor no celular */
 }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* Animações Globais Dinâmicas */
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(15px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
 @keyframes float { 
     0%, 100% { transform: translateY(0px); } 
-    50% { transform: translateY(-15px); } 
+    50% { transform: translateY(-15px); filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.4)); } 
+}
+
+/* Nova animação de fundo vivo para o banner principal */
+@keyframes bgPan {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

@@ -16,10 +16,10 @@
     overflow: hidden;
 }
 
-/* Efeito Hover "Lift" */
+/* Efeito Hover "Lift" - DEIXADO MAIS DINÂMICO */
 .card:hover {
-    transform: translateY(-8px); /* Levanta mais */
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-12px); /* Levanta ainda mais */
+    box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2); /* Brilho verde neon mais intenso */
     border-color: rgba(56, 189, 248, 0.3); /* Brilho subtil na borda */
 }
 
