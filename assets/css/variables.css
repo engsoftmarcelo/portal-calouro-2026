@@ -72,3 +72,32 @@
     --secondary-color: #FF6B6B;/* Vermelho pastel */
     --accent-color: #00FF88;   /* Verde Neon mantém-se vibrante */
 }
+
+/* --- TEMA EASTER EGG (MUNDO INVERTIDO / STRANGER THINGS) --- */
+/* Este tema será ativado via JavaScript quando o utilizador descobrir o segredo */
+[data-theme="upside-down"] {
+    
+    /* Cores de fundo sombrias e asfixiantes */
+    --bg-body: #050000;        /* Quase preto, com um toque de vermelho (Sangue seco) */
+    --bg-card: #140000;        /* Vermelho incrivelmente escuro para os cartões */
+    --bg-header: rgba(20, 0, 0, 0.85); 
+    
+    /* Textos distorcidos */
+    --text-main: #FFB3B3;      /* Um rosa/vermelho pálido e doentio */
+    --text-secondary: #802B2B; /* Vermelho escuro desbotado */
+    
+    /* Ajuste de Bordas e Sombras (Brilho ameaçador) */
+    --border-color: #4D0000;   /* Borda vermelho sangue escuro */
+    --shadow: 0 4px 15px rgba(255, 0, 0, 0.3); /* Sombra vermelha brilhante */
+    --glow: 0 0 25px rgba(255, 69, 0, 0.6);    /* Brilho laranja incandescente */
+    
+    /* Cores agressivas */
+    --primary-color: #FF0000;  /* Vermelho absoluto e violento */
+    --secondary-color: #B30000;/* Vermelho mais escuro */
+    --accent-color: #FF4500;   /* Laranja neon (Lembrando fogo/faíscas) */
+    
+    /* Cores de Feedback (Tudo no Mundo Invertido é perigoso) */
+    --success-color: #FF4500;  
+    --warning-color: #FF0000;  
+    --info-color: #B30000;     
+}

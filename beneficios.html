@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="manifest" href="manifest.json">
     <title>Benefícios | DAES LOURDES</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -86,11 +88,10 @@
 
                 <div class="content-card">
                     <h3><i class="fas fa-chalkboard-teacher"></i> Programa de Monitorias</h3>
-                    <p>Ajude outros alunos, reforce seu aprendizado e ainda ganhe benefícios.</p>
-                    <ul class="list-check">
-                        <li><strong>Benefício:</strong> Desconto na mensalidade e horas complementares (ACG).</li>
-                        <li><strong>Como funciona:</strong> Editais para as disciplinas de Engenharia de Software abrem todo início de semestre. Você precisa ter cursado a matéria alvo com boa nota para ser selecionado para a monitoria.</li>
-                    </ul>
+                    <p>Precisando de uma força extra nas matérias? Procure os nossos monitores! Eles são alunos veteranos selecionados para te ajudar a tirar dúvidas e reforçar o aprendizado.</p>
+                    <div class="alert-box warning" style="padding: 0.5rem; margin-top: 1rem;">
+                        <small><strong>Aviso:</strong> A lista oficial com todas as informações, disciplinas e horários de atendimento dos monitores deste semestre será divulgada muito em breve!</small>
+                    </div>
                 </div>
             </div>
         </section>
@@ -147,7 +148,7 @@
                     <h3>Diretório Acadêmico (D.A.)</h3>
                     <p>Nós somos sua voz. Problemas com professores, coordenação ou infraestrutura? Nos procure e vamos ajudar a resolver.</p>
                     <div class="social-row" style="margin-top: 15px;">
-                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-whatsapp"></i> Grupo Calouros</a>
+                        <a href="https://chat.whatsapp.com/KWpO3fxKX4T75ub8m5cl0v?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;"><i class="fab fa-whatsapp"></i> Grupo do D.A.</a>
                     </div>
                 </article>
 
@@ -156,13 +157,30 @@
 
     </main>
 
+    <div class="floating-whatsapp-container">
+        <div class="floating-wa-menu" id="floating-wa-menu">
+            <h4>Qual grupo quer entrar?</h4>
+            <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="wa-btn wa-manha"><i class="fas fa-sun"></i> Turma Manhã</a>
+            <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="wa-btn wa-noite"><i class="fas fa-moon"></i> Turma Noite</a>
+        </div>
+        <button class="floating-whatsapp" id="floating-wa-btn" aria-label="Grupos do WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-content">
             <p>&copy; 2026 DAES LOURDES - Engenharia de Software</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/daeslourdes?igsh=MTdjcGtmaTlvOGdicg==" target="_blank" aria-label="Instagram DAES"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.pucminas.br/icei" target="_blank" aria-label="Portal ICEI" style="font-size: 1rem; font-weight: bold; margin-left: 15px;">Portal ICEI</a>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <p style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Grupos Oficiais (Calouros 2026):</p>
+                <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Manhã</a>
+                <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Noite</a>
             </div>
         </div>
     </footer>

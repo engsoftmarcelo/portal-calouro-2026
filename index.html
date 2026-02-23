@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portal de Acolhimento ao Discente - Engenharia de Software PUC Minas Praça da Liberdade 2026.">
-    <title>DAES LOURDES | Portal Calouro 2026</title>
+    <meta name="theme-color" content="#0B1120">
+    <link rel="manifest" href="manifest.json">
+    <title>Portal do Calouro 2026 | Eng. de Software PUC Minas</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    
     <link rel="stylesheet" href="assets/css/variables.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/components.css">
@@ -31,97 +32,210 @@
     </header>
 
     <section class="hero-section">
+        <img src="assets/img/logos/mascotePNG.png" alt="Mascote Byte" class="mascote-hero">
+        
         <div class="hero-content">
-            <img src="assets/img/logos/mascotePNG.png" alt="Mascote DAES" class="mascote-hero">
-            <h1>Bem-vindo, Calouro 2026!</h1>
-            <p>Seu guia definitivo para o 1º período na PUC Minas Praça da Liberdade.</p>
+            <h1>Guia de Sobrevivência 2026</h1>
+            <p>Tudo o que você precisa para dominar o 1º período de Engenharia de Software na PUC Minas Praça da Liberdade.</p>
         </div>
     </section>
 
-    <main class="container">
-        <div class="search-wrapper">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" id="searchInput" placeholder="O que você procura? (ex: Grade, Salas...)">
-            </div>
+    <div class="search-wrapper">
+        <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Busque por 'wifi', 'notas', 'mapa' ou tente um comando secreto..." autocomplete="off">
         </div>
+    </div>
 
-        <section class="section-block">
-            <h2 class="section-title">Sistemas Essenciais</h2>
-            <div class="grid-systems">
-                <a href="https://www.pucminas.br/sgaalunos" target="_blank" class="card system-card" data-system="sga">
-                    <i class="fas fa-university icon-lg"></i>
-                    <h3>SGA Aluno</h3>
-                    <p>Notas, Boletos e Matrícula</p>
-                </a>
-                
-                <a href="https://canvas.pucminas.br/" target="_blank" class="card system-card" data-system="canvas">
-                    <i class="fas fa-chalkboard-teacher icon-lg"></i>
-                    <h3>Canvas LMS</h3>
-                    <p>Aulas, Trabalhos e Slides</p>
-                </a>
+    <main class="container">
 
-                <a href="https://outlook.office.com/mail/" target="_blank" class="card system-card" data-system="outlook">
-                    <i class="fas fa-envelope icon-lg"></i>
-                    <h3>Email Oficial</h3>
-                    <p>Comunicados da Reitoria</p>
-                </a>
+        <section class="section-block mission-progress-container" style="margin-top: -1rem;">
+            <div class="progress-header">
+                <span><i class="fas fa-gamepad" style="color: var(--primary-color);"></i> Missões do Calouro (Onboarding)</span>
+                <span class="progress-percentage" id="home-mission-text">0%</span>
+            </div>
+            <div class="progress-track" style="margin-bottom: 1.5rem;">
+                <div class="progress-fill" style="width: 0%;" id="home-mission-progress"></div>
+            </div>
+            
+            <div style="font-size: 0.95rem;">
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-secondary);">
+                    <input type="checkbox" class="mission-cb" style="margin-right: 10px; accent-color: var(--accent-color); transform: scale(1.2);"> 
+                    Descobrir seu e-mail PUC e acessar o Canvas
+                </label>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-secondary);">
+                    <input type="checkbox" class="mission-cb" style="margin-right: 10px; accent-color: var(--accent-color); transform: scale(1.2);"> 
+                    Configurar a rede Wi-Fi (PUCMinas) no celular
+                </label>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-secondary);">
+                    <input type="checkbox" class="mission-cb" style="margin-right: 10px; accent-color: var(--accent-color); transform: scale(1.2);"> 
+                    Seguir o Instagram <strong>@daeslourdes</strong>
+                </label>
+                <label style="display: block; margin-bottom: 10px; cursor: pointer; color: var(--text-secondary);">
+                    <input type="checkbox" class="mission-cb" style="margin-right: 10px; accent-color: var(--accent-color); transform: scale(1.2);"> 
+                    Entrar no grupo oficial da sua turma no WhatsApp
+                </label>
             </div>
         </section>
 
         <section class="section-block">
-            <h2 class="section-title">Guia do Calouro</h2>
-            <div class="grid-nav">
+            <h2 class="section-title">Acesso Rápido</h2>
+            <div class="grid-systems">
                 
+                <a href="https://sga.pucminas.br" target="_blank" class="card system-card">
+                    <i class="fas fa-graduation-cap icon-lg"></i>
+                    <h3>SGA Alunos</h3>
+                    <p>Notas, faltas, boletos e histórico.</p>
+                    <span class="btn btn-outline full-width">Acessar Sistema</span>
+                </a>
+
+                <a href="https://canvas.pucminas.br/" target="_blank" class="card system-card highlight-card">
+                    <i class="fas fa-chalkboard-teacher icon-lg" style="color: var(--accent-color);"></i>
+                    <h3>Canvas</h3>
+                    <p>Aulas, entregas de trabalhos e avisos.</p>
+                    <span class="btn btn-outline full-width">Ir para a Sala de Aula</span>
+                </a>
+
+                <a href="https://outlook.office.com" target="_blank" class="card system-card">
+                    <i class="fas fa-envelope-open-text icon-lg"></i>
+                    <h3>E-mail Acadêmico</h3>
+                    <p>Sua conta institucional Google/Office.</p>
+                    <span class="btn btn-outline full-width">Ler E-mails</span>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2 class="section-title">Navegação Principal</h2>
+            <div class="grid-nav">
+
+                <a href="sistemas.html" class="card nav-card">
+                    <div class="icon-box"><i class="fas fa-wifi"></i></div>
+                    <div>
+                        <h3>Sistemas & Wi-Fi</h3>
+                        <p>Como acessar o Wi-Fi e gerir as suas senhas.</p>
+                    </div>
+                </a>
+
                 <a href="academico.html" class="card nav-card">
                     <div class="icon-box"><i class="fas fa-book-open"></i></div>
-                    <div class="text-box">
+                    <div>
                         <h3>Vida Acadêmica</h3>
-                        <p>Grade Curricular, T.I. e Dicas de Estudo</p>
+                        <p>Grade do 1º período, T.I. e informações da Coordenação.</p>
                     </div>
                 </a>
 
                 <a href="campus.html" class="card nav-card">
                     <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
-                    <div class="text-box">
-                        <h3>Mapa da Unidade</h3>
-                        <p>Prédios 1, 3, 4 e Onde Comer na Savassi</p>
+                    <div>
+                        <h3>Mapa & Campus</h3>
+                        <p>Prédios, laboratórios, locais para comer e segurança.</p>
                     </div>
                 </a>
 
                 <a href="beneficios.html" class="card nav-card">
                     <div class="icon-box"><i class="fas fa-id-card"></i></div>
-                    <div class="text-box">
-                        <h3>Burocracia & Benefícios</h3>
-                        <p>Carteirinha, DNE e Wi-Fi Eduroam</p>
+                    <div>
+                        <h3>Benefícios</h3>
+                        <p>Bolsas, carteirinha de estudante e apoio psicológico.</p>
                     </div>
                 </a>
 
-                <a href="sistemas.html" class="card nav-card">
-                    <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
-                    <div class="text-box">
-                        <h3>Tutoriais de Acesso</h3>
-                        <p>Como configurar o Eduroam e senhas</p>
-                    </div>
-                </a>
             </div>
         </section>
+
     </main>
+
+    <div class="floating-whatsapp-container">
+        <div class="floating-wa-menu" id="floating-wa-menu">
+            <h4>Qual grupo quer entrar?</h4>
+            <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="wa-btn wa-manha"><i class="fas fa-sun"></i> Turma Manhã</a>
+            <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="wa-btn wa-noite"><i class="fas fa-moon"></i> Turma Noite</a>
+        </div>
+        <button class="floating-whatsapp" id="floating-wa-btn" aria-label="Grupos do WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
 
     <footer class="main-footer">
         <div class="footer-content">
-            <p>&copy; 2026 DAES LOURDES - Engenharia de Software - PUC Minas</p>
-            <p class="small-text">Desenvolvido por alunos, para alunos.</p>
+            <p>&copy; 2026 DAES LOURDES - Engenharia de Software</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/daeslourdes?igsh=MTdjcGtmaTlvOGdicg==" target="_blank" aria-label="Instagram DAES"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.pucminas.br/icei" target="_blank" aria-label="Portal ICEI" style="font-size: 1rem; font-weight: bold; margin-left: 15px;">Portal ICEI</a>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <p style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Grupos Oficiais (Calouros 2026):</p>
+                <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Manhã</a>
+                <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Noite</a>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/theme.js" defer></script>
-    <script src="assets/js/search.js" defer></script>
     <script src="assets/js/navigation.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.mission-cb');
+            const progressBar = document.getElementById('home-mission-progress');
+            const progressText = document.getElementById('home-mission-text');
+
+            // Carrega o progresso salvo no telemóvel
+            const savedMissions = JSON.parse(localStorage.getItem('calouroMissions')) || [];
+            
+            checkboxes.forEach((cb, index) => {
+                if(savedMissions.includes(index)) {
+                    cb.checked = true;
+                    cb.parentElement.style.textDecoration = 'line-through';
+                    cb.parentElement.style.opacity = '0.7';
+                }
+
+                cb.addEventListener('change', () => {
+                    let activeMissions = [];
+                    
+                    if (cb.checked) {
+                        cb.parentElement.style.textDecoration = 'line-through';
+                        cb.parentElement.style.opacity = '0.7';
+                    } else {
+                        cb.parentElement.style.textDecoration = 'none';
+                        cb.parentElement.style.opacity = '1';
+                    }
+
+                    checkboxes.forEach((box, i) => {
+                        if(box.checked) activeMissions.push(i);
+                    });
+                    
+                    // Guarda na memória do telemóvel/browser
+                    localStorage.setItem('calouroMissions', JSON.stringify(activeMissions));
+                    updateProgress();
+                });
+            });
+
+            function updateProgress() {
+                const total = checkboxes.length;
+                const checked = document.querySelectorAll('.mission-cb:checked').length;
+                const percent = Math.round((checked / total) * 100);
+                
+                progressBar.style.width = percent + '%';
+                progressText.innerText = percent + '%';
+                
+                if(percent === 100) {
+                    progressBar.style.background = 'linear-gradient(90deg, #10B981, #00FF88)';
+                    progressBar.style.boxShadow = '0 0 20px rgba(0, 255, 136, 0.8)';
+                    progressText.innerText = '100% - GG WP! 🎉';
+                } else {
+                    progressBar.style.background = 'linear-gradient(90deg, var(--primary-color), var(--accent-color))';
+                }
+            }
+
+            // Inicializa a barra ao carregar a página
+            updateProgress();
+        });
+    </script>
 </body>
 </html>

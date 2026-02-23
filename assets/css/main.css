@@ -7,6 +7,8 @@
 
 html {
     scroll-behavior: smooth; /* Rolagem suave nativa */
+    /* Remove o highlight azul padrão dos navegadores mobile ao clicar */
+    -webkit-tap-highlight-color: transparent; 
 }
 
 body {
@@ -14,10 +16,12 @@ body {
     color: var(--text-main);
     font-family: var(--font-main);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, filter 1s ease, transform 1s ease;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* Comportamento de App: Evita o "pull-to-refresh" indesejado no topo da página */
+    overscroll-behavior-y: none; 
 }
 
 a { text-decoration: none; color: inherit; transition: var(--transition); }
@@ -26,15 +30,14 @@ img { max-width: 100%; display: block; }
 
 /* Scrollbar Personalizada (Estilo Cyberpunk/Tech) */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px; /* Ligeiramente mais fina para parecer app */
 }
 ::-webkit-scrollbar-track {
     background: var(--bg-body);
 }
 ::-webkit-scrollbar-thumb {
     background: var(--text-secondary);
-    border-radius: 5px;
-    border: 2px solid var(--bg-body);
+    border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
@@ -64,17 +67,20 @@ img { max-width: 100%; display: block; }
 .main-header {
     background-color: var(--bg-header);
     backdrop-filter: blur(12px); /* Efeito de vidro fosco (Glassmorphism) */
+    -webkit-backdrop-filter: blur(12px); /* Suporte para Safari/iOS */
     height: 80px;
     padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: var(--shadow);
-    border-bottom: 1px solid var(--border-color); /* Linha subtil para separação */
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 1000;
     transition: background-color 0.3s ease;
+    /* App feel: impede que o utilizador selecione o texto do cabeçalho sem querer */
+    user-select: none; 
 }
 
 .logo-container {
@@ -82,11 +88,11 @@ img { max-width: 100%; display: block; }
     align-items: center;
     gap: 10px;
     text-decoration: none;
-    transition: transform 0.3s ease; /* Animação adicionada */
+    transition: transform 0.3s ease;
 }
 
 .logo-container:hover {
-    transform: scale(1.03); /* Efeito de expansão ao passar o mouse */
+    transform: scale(1.03);
 }
 
 .logo-img {
@@ -116,7 +122,7 @@ img { max-width: 100%; display: block; }
 .icon-btn:hover { 
     background-color: rgba(0,0,0,0.05); 
     color: var(--primary-color);
-    transform: rotate(15deg); /* Dinamismo no hover dos ícones */
+    transform: rotate(15deg); 
 }
 
 /* --- 4. HERO SECTION (Área de Destaque) --- */
@@ -127,13 +133,13 @@ img { max-width: 100%; display: block; }
         radial-gradient(circle at bottom left, rgba(0, 51, 102, 0.4) 0%, transparent 50%),
         linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     
-    background-size: 200% 200%; /* Preparando para o efeito de movimento */
-    animation: bgPan 15s ease infinite; /* Animação de fundo dinâmica */
+    background-size: 200% 200%; 
+    animation: bgPan 15s ease infinite; 
     
     color: #fff;
     padding: 3rem 1.5rem 5rem;
     text-align: center;
-    border-bottom-left-radius: 40px; /* Mais arredondado */
+    border-bottom-left-radius: 40px; 
     border-bottom-right-radius: 40px;
     margin-bottom: 2rem;
     box-shadow: var(--shadow);
@@ -160,8 +166,10 @@ img { max-width: 100%; display: block; }
 .mascote-hero {
     max-height: 180px;
     margin: 0 auto 1rem auto;
-    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.2)); /* Brilho neon suave */
+    filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.2)); 
     animation: float 5s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 { font-size: 2.2rem; margin-bottom: 0.5rem; font-weight: 800; }
@@ -176,6 +184,8 @@ img { max-width: 100%; display: block; }
     background-color: var(--bg-card);
     border-top: 1px solid var(--border-color);
     padding: 2rem 1.5rem;
+    /* Adicionado padding extra no fundo para o botão do WhatsApp não tapar conteúdo */
+    padding-bottom: 5rem; 
     text-align: center;
     margin-top: 4rem;
 }
@@ -185,12 +195,28 @@ img { max-width: 100%; display: block; }
 .social-links a { font-size: 1.5rem; color: var(--text-secondary); }
 .social-links a:hover { color: var(--primary-color); transform: translateY(-3px); }
 
-/* --- 6. RESPONSIVIDADE & ANIMAÇÕES --- */
+
+/* --- 6. EASTER EGG (MUNDO INVERTIDO) --- */
+/* Classe aplicada via JS ao ativar o código secreto */
+body.upside-down {
+    filter: invert(1) hue-rotate(180deg) contrast(1.2);
+    /* Descomenta a linha abaixo se quiseres que o site fique literalmente de cabeça para baixo! */
+    /* transform: rotate(180deg); */
+}
+body.upside-down .logo-img {
+    filter: invert(1) hue-rotate(180deg); /* Desinverte a logo para ela ficar normal no mundo invertido */
+}
+
+
+/* --- 7. RESPONSIVIDADE & ANIMAÇÕES --- */
 @media (max-width: 768px) {
-    .hero-section { padding: 2rem 1rem 4rem; }
+    .hero-section { padding: 2rem 1rem 4rem; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px; }
     .hero-content h1 { font-size: 1.8rem; }
     .grid-2-col { grid-template-columns: 1fr; }
-    .mascote-hero { max-height: 140px; } /* Mascote menor no celular */
+    .mascote-hero { max-height: 140px; } 
+    
+    /* Mais espaço no mobile para o botão flutuante */
+    .main-footer { padding-bottom: 6rem; }
 }
 
 /* Animações Globais Dinâmicas */
@@ -204,7 +230,7 @@ img { max-width: 100%; display: block; }
     50% { transform: translateY(-15px); filter: drop-shadow(0 0 30px rgba(0, 255, 136, 0.4)); } 
 }
 
-/* Nova animação de fundo vivo para o banner principal */
+/* Animação de fundo vivo para o banner principal */
 @keyframes bgPan {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }

@@ -1,6 +1,6 @@
 /* SEARCH.JS
    Sistema de busca inteligente para redirecionamento rápido.
-   Como não temos banco de dados, usamos um mapa de palavras-chave atualizado.
+   Atualizado com Easter Eggs e comandos secretos para os calouros descobrirem!
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -21,31 +21,31 @@ document.addEventListener('DOMContentLoaded', () => {
         'internet': 'sistemas.html#eduroam',
         'eduroam': 'sistemas.html#eduroam',
 
-        // Campus e Localização (Guia Gastronômico atualizado)
+        // Campus e Localização
         'mapa': 'campus.html',
-        'prédio': 'campus.html',
+        'predio': 'campus.html', 
         'sala': 'campus.html',
         'comida': 'campus.html',
-        'almoço': 'campus.html',
-        'paçaki': 'campus.html',
+        'almoco': 'campus.html', 
+        'pacaki': 'campus.html', 
         'xerox': 'campus.html',
-        'impressão': 'campus.html',
+        'impressao': 'campus.html',
         'biblioteca': 'campus.html',
 
-        // Acadêmico (Incluindo as Optativas e Coordenação)
+        // Acadêmico e Coordenação
         'grade': 'academico.html',
-        'matéria': 'academico.html',
+        'materia': 'academico.html',
         'ti': 'academico.html',
         'trabalho': 'academico.html',
         'horas': 'academico.html',
         'estudo': 'academico.html',
         'github': 'academico.html',
-        'inglês': 'academico.html',
+        'ingles': 'academico.html',
         'optativa': 'academico.html',
-        'coordenação': 'academico.html#coordenacao',
+        'coordenacao': 'academico.html#coordenacao',
         'soraia': 'academico.html#coordenacao',
 
-        // Benefícios, Bolsas e Apoio (Incluindo NAI, Psicologia e Monitorias)
+        // Benefícios, Bolsas e Apoio
         'carteirinha': 'beneficios.html',
         'meia': 'beneficios.html',
         'dne': 'beneficios.html',
@@ -55,11 +55,42 @@ document.addEventListener('DOMContentLoaded', () => {
         'apoio': 'beneficios.html',
         'monitoria': 'beneficios.html',
         'bolsa': 'beneficios.html',
-        'iniciação': 'beneficios.html',
+        'iniciacao': 'beneficios.html',
         'pibic': 'beneficios.html'
     };
 
-    // 2. Função de Busca
+    // 2. Códigos Secretos (Easter Eggs) - A magia acontece aqui!
+    const easterEggs = {
+        'mundo invertido': triggerUpsideDown,
+        'upside down': triggerUpsideDown,
+        'vecna': triggerUpsideDown,
+        'stranger things': triggerUpsideDown,
+        'sudo': triggerRoot,
+        'rm -rf /': triggerRoot,
+        'anitta': triggerShow // Pequena surpresa musical
+    };
+
+    function triggerUpsideDown() {
+        document.body.classList.toggle('upside-down');
+        const isOn = document.body.classList.contains('upside-down');
+        
+        // Feedback visual ameaçador na barra de busca
+        searchInput.value = isOn ? 'CUIDADO COM O DEMOGORGON...' : '';
+        searchInput.style.color = isOn ? 'var(--primary-color)' : '';
+        searchInput.style.borderColor = isOn ? 'var(--primary-color)' : 'transparent';
+    }
+
+    function triggerRoot() {
+        alert("Acesso Negado. Você não tem privilégios de ROOT (ou talvez a gente não tenha banco de dados mesmo 😅).");
+        searchInput.value = '';
+    }
+
+    function triggerShow() {
+        alert("Prepara! 💃 Mas primeiro foca em passar em Introdução a Algoritmos!");
+        searchInput.value = '';
+    }
+
+    // 3. Função de Busca Principal
     function performSearch() {
         // Transforma tudo em minúsculo e remove acentos para facilitar a busca
         const rawQuery = searchInput.value.toLowerCase().trim();
@@ -70,11 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Feedback visual de carregamento rápido
         searchInput.style.borderColor = "var(--primary-color)";
 
-        // Verifica se alguma palavra-chave está contida na busca do usuário
+        // 3.1 Verifica se o utilizador digitou um código secreto primeiro
+        for (const [key, action] of Object.entries(easterEggs)) {
+            if (rawQuery === key) {
+                action();
+                return; // Interrompe a pesquisa normal para rodar o Easter Egg
+            }
+        }
+
+        // 3.2 Verifica se alguma palavra-chave normal está contida na busca
         let found = false;
         
         for (const [key, url] of Object.entries(searchIndex)) {
-            // Normaliza a chave do índice também
             const normalizedKey = key.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             
             if (query.includes(normalizedKey)) {
@@ -96,12 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 { transform: 'translateX(0)' }
             ], { duration: 400, easing: 'ease-in-out' });
             
-            // Mensagem atualizada com dicas
             alert(`Não encontramos um atalho exato para "${rawQuery}". \nTente termos mais curtos como: "wifi", "notas", "monitoria" ou "almoço".`);
         }
     }
 
-    // 3. Evento: Pressionar ENTER
+    // 4. Eventos: Pressionar ENTER e Digitação
     if (searchInput) {
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -109,9 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Retorna a borda ao normal quando o usuário volta a digitar
+        // Retorna a borda ao normal quando o utilizador volta a digitar
         searchInput.addEventListener('input', () => {
-            searchInput.style.borderColor = "transparent";
+            // Só limpa o estilo se o Mundo Invertido não estiver ativo
+            if (!document.body.classList.contains('upside-down')) {
+                searchInput.style.borderColor = "transparent";
+                searchInput.style.color = "var(--text-main)";
+            }
         });
     }
 });

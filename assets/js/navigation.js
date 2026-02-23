@@ -1,6 +1,6 @@
 /* NAVIGATION.JS
-   Gerencia o Menu Mobile (Overlay), Scroll Suave e Animações de Entrada.
-   Cria o menu dinamicamente para não precisarmos editar o HTML de todas as páginas.
+   Gerencia o Menu Mobile (Overlay), Scroll Suave, Animações de Entrada,
+   Interações do Mascote, Comportamento de Cartões e o Menu do WhatsApp.
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 top: 0; left: 0; width: 100%; height: 100%;
                 background-color: var(--bg-body);
                 z-index: 2000;
-                transform: translateY(-100%); /* Escondido pra cima */
-                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico no menu */
+                transform: translateY(-100%);
+                transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
             #mobile-menu-overlay.active {
-                transform: translateY(0); /* Mostra */
+                transform: translateY(0);
             }
             .menu-content {
                 text-align: center;
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .menu-link:hover {
                 color: var(--primary-color);
                 background-color: rgba(0,0,0,0.02);
-                transform: scale(1.05); /* Leve pulo ao passar o mouse no menu */
+                transform: scale(1.05);
             }
             .close-btn {
                 position: absolute;
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 transition: transform 0.3s ease, color 0.3s ease;
             }
             .close-btn:hover {
-                transform: rotate(90deg) scale(1.2); /* Gira e aumenta o X ao fechar */
+                transform: rotate(90deg) scale(1.2);
                 color: var(--danger-color);
             }
         `;
@@ -87,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function toggleMenu() {
             overlay.classList.toggle('active');
-            // Bloqueia o scroll do fundo quando o menu está aberto
             body.style.overflow = overlay.classList.contains('active') ? 'hidden' : 'auto';
         }
 
@@ -101,18 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 2. SCROLL SUAVE (SMOOTH SCROLL) ---
-    // Aplica o efeito suave ao clicar em links internos (ex: #sga)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             
             const targetId = this.getAttribute('href').substring(1);
-            
-            // Só executa se o alvo existir na mesma página
+            if (!targetId) return;
+
             const targetElement = document.getElementById(targetId);
 
             if (targetElement) {
                 e.preventDefault();
-                // Compensa a altura do Header fixo (80px)
                 const headerOffset = 85;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -126,36 +123,106 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- 3. ANIMAÇÃO DE ENTRADA (DINAMISMO EXTRA) ---
-    // Melhoramos o IntersectionObserver para dar um efeito mais "vivo" ao rolar a página
     const observerOptions = {
-        threshold: 0.1, // Dispara quando 10% do elemento estiver visível
-        rootMargin: "0px 0px -30px 0px" // Dispara um pouco antes de aparecer totalmente
+        threshold: 0.1,
+        rootMargin: "0px 0px -30px 0px"
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                // Remove o delay se for mobile para não travar a experiência, 
-                // mas aplica um efeito de transição fluido
                 entry.target.style.opacity = 1;
                 entry.target.style.transform = 'translateY(0) scale(1)';
-                
-                // Descomente a linha abaixo se quiser que a animação aconteça SÓ na primeira vez que rolar
-                // observer.unobserve(entry.target);
             } else {
-                // Reseta o estado quando sai da tela para animar de novo ao voltar
                 entry.target.style.opacity = 0;
                 entry.target.style.transform = 'translateY(30px) scale(0.95)';
             }
         });
     }, observerOptions);
 
-    // Aplica o observador não só nos cards, mas em títulos e alertas
-    document.querySelectorAll('.card, .section-title, .alert-box').forEach((el) => {
-        // Estado inicial invisível e levemente menor/abaixado
+    document.querySelectorAll('.card, .section-title, .alert-box, .deck-card').forEach((el) => {
         el.style.opacity = 0;
         el.style.transform = 'translateY(30px) scale(0.95)';
         el.style.transition = 'opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
         observer.observe(el);
     });
+
+    // --- 4. INTERAÇÃO DO MASCOTE (DICAS ALEATÓRIAS) ---
+    const mascote = document.querySelector('.mascote-hero');
+    
+    if (mascote) {
+        // Envolve o mascote num container dinamicamente se não estiver envolvido
+        if (!mascote.parentElement.classList.contains('mascote-container')) {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('mascote-container');
+            mascote.parentNode.insertBefore(wrapper, mascote);
+            wrapper.appendChild(mascote);
+            
+            // Adiciona o balão de fala
+            const bubble = document.createElement('div');
+            bubble.classList.add('speech-bubble');
+            wrapper.appendChild(bubble);
+        }
+
+        const mascoteContainer = document.querySelector('.mascote-container');
+        const speechBubble = mascoteContainer.querySelector('.speech-bubble');
+
+        // Banco de falas gamificadas para os calouros
+        const dicas = [
+            "Não deixe o T.I. para a última semana! 🐺",
+            "Já configurou o seu eduroam no celular?",
+            "O Paçaki salva nos dias de fome, vai por mim.",
+            "Esqueceu a senha do SGA de novo? 😅",
+            "A biblioteca no Prédio 4 é ótima para focar.",
+            "Lógica de programação é prática. Não desista!",
+            "Precisa de ajuda? O D.A. está aqui para você!"
+        ];
+
+        // Mostra uma dica aleatória ao clicar/tocar no mascote
+        mascoteContainer.addEventListener('click', () => {
+            const dicaAleatoria = dicas[Math.floor(Math.random() * dicas.length)];
+            speechBubble.innerText = dicaAleatoria;
+            
+            mascoteContainer.classList.add('active');
+            
+            // Remove o balão após 4 segundos
+            setTimeout(() => {
+                mascoteContainer.classList.remove('active');
+            }, 4000);
+        });
+    }
+
+    // --- 5. COMPORTAMENTO DE CARTÕES (FLIP) NO MOBILE ---
+    // Permite que os cartões de disciplina virem ao toque em ecrãs pequenos
+    const deckCards = document.querySelectorAll('.deck-card');
+    
+    deckCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Remove a classe de flip dos outros cartões (para não ficarem todos virados)
+            deckCards.forEach(c => {
+                if (c !== this) c.classList.remove('flipped');
+            });
+            // Alterna o flip no cartão atual
+            this.classList.toggle('flipped');
+        });
+    });
+
+    // --- 6. MENU FLUTUANTE DO WHATSAPP (TURMAS) ---
+    const waBtn = document.getElementById('floating-wa-btn');
+    const waContainer = document.querySelector('.floating-whatsapp-container');
+
+    if (waBtn && waContainer) {
+        // Alterna a classe 'active' para abrir/fechar o menu ao clicar no botão
+        waBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita qualquer comportamento padrão
+            waContainer.classList.toggle('active');
+        });
+
+        // Fecha o menu automaticamente se o utilizador clicar noutro local do ecrã
+        document.addEventListener('click', (e) => {
+            if (!waContainer.contains(e.target)) {
+                waContainer.classList.remove('active');
+            }
+        });
+    }
 });

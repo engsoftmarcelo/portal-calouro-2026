@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="manifest" href="manifest.json">
     <title>Mapa e Campus | DAES LOURDES</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -302,13 +304,30 @@
 
     </main>
 
+    <div class="floating-whatsapp-container">
+        <div class="floating-wa-menu" id="floating-wa-menu">
+            <h4>Qual grupo quer entrar?</h4>
+            <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="wa-btn wa-manha"><i class="fas fa-sun"></i> Turma Manhã</a>
+            <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="wa-btn wa-noite"><i class="fas fa-moon"></i> Turma Noite</a>
+        </div>
+        <button class="floating-whatsapp" id="floating-wa-btn" aria-label="Grupos do WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-content">
             <p>&copy; 2026 DAES LOURDES - Engenharia de Software</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/daeslourdes?igsh=MTdjcGtmaTlvOGdicg==" target="_blank" aria-label="Instagram DAES"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.pucminas.br/icei" target="_blank" aria-label="Portal ICEI" style="font-size: 1rem; font-weight: bold; margin-left: 15px;">Portal ICEI</a>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <p style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Grupos Oficiais (Calouros 2026):</p>
+                <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Manhã</a>
+                <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Noite</a>
             </div>
         </div>
     </footer>

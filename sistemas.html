@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0B1120">
+    <link rel="manifest" href="manifest.json">
     <title>Sistemas e Acessos | DAES LOURDES</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/variables.css">
@@ -30,204 +32,180 @@
     <section class="hero-section hero-small">
         <div class="hero-content">
             <h1>Sistemas & Conectividade</h1>
-            <p>Aprenda a navegar no ecossistema digital da PUC Minas e configure seu Wi-Fi.</p>
+            <p>Guia definitivo e oficial de credenciais para não se perder no ecossistema digital da PUC Minas.</p>
         </div>
     </section>
 
     <main class="container">
         
-        <div class="alert-box info">
-            <div class="alert-icon"><i class="fas fa-key"></i></div>
+        <div class="alert-box danger" style="margin-bottom: 2rem;">
+            <div class="alert-icon"><i class="fas fa-exclamation-triangle"></i></div>
             <div class="alert-content">
-                <h4>Regra de Ouro dos Logins</h4>
-                <p>Não confunda suas credenciais! Existem apenas dois tipos de acesso:</p>
-                <ul class="login-rules">
-                    <li><strong>SGA (Burocracia):</strong> Login é apenas o <code>NÚMERO</code> (Código de Pessoa).</li>
-                    <li><strong>Canvas/Wi-Fi (Microsoft):</strong> Login é o <code>EMAIL</code> (codigo@pucminas.br).</li>
-                </ul>
+                <h4 style="color: inherit;">A Regra da Senha Única (Sincronizada)</h4>
+                <p style="color: inherit;">As aplicações <strong>Canvas, Office 365, Rede Wi-Fi (PUCMinas/Eduroam), Portal CAPES e Laboratórios Acadêmicos</strong> compartilham a <strong>MESMA SENHA</strong>. Se você alterar a senha em um sistema, os demais também serão afetados! Após a troca, aguarde 15 minutos para a sincronização na nuvem.</p>
             </div>
         </div>
 
-        <section class="section-block" id="sga">
-            <div class="section-header">
-                <i class="fas fa-university icon-title sga-color"></i>
-                <h2 class="section-title">SGA - Sistema de Gestão Acadêmica</h2>
-            </div>
+        <section class="section-block">
+            <h2 class="section-title">O Formato dos seus Logins</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Preste muita atenção ao formato do seu usuário. Um "@" no lugar errado impede o seu acesso.</p>
             
-            <div class="content-card">
-                <p>O SGA é a "Secretaria Virtual". É aqui que sua vida legal na universidade acontece. Se não está no SGA, não é oficial.</p>
-                
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <div>
-                            <strong>Quadro de Horários:</strong> Confira aqui sua sala oficial. Lembre-se: na Praça da Liberdade, a sala pode mudar conforme o dia.
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                        <div>
-                            <strong>Financeiro:</strong> Emissão de boletos. A inadimplência bloqueia a renovação, mas não o acesso às aulas do semestre atual.
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-graduation-cap"></i>
-                        <div>
-                            <strong>Notas Oficiais:</strong> A nota do Canvas é provisória. A nota do SGA é a que vai para o histórico.
-                        </div>
-                    </div>
+            <div class="grid-systems">
+                <div class="content-card highlight-border">
+                    <h3 style="font-size: 1.1rem; color: var(--primary-color);"><i class="fas fa-id-badge"></i> Apenas Código de Pessoa</h3>
+                    <p class="small-text" style="margin-top: 10px; font-family: monospace; background: rgba(0,0,0,0.05); padding: 5px; border-radius: 5px; text-align: center; font-size: 1rem;">1234567</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Use apenas o seu número para acessar:</p>
+                    <ul class="list-check" style="font-size: 0.85rem; margin-top: 10px;">
+                        <li>SGA Alunos (Burocracia)</li>
+                        <li>Laboratórios Acadêmicos (Físicos)</li>
+                        <li>Portal CAPES</li>
+                    </ul>
                 </div>
 
-                <div class="action-buttons">
-                    <a href="https://www.pucminas.br/sgaalunos" target="_blank" class="btn btn-primary">Acessar SGA</a>
-                    <a href="https://sistemas.pucminas.br/SGAAluno4/RecuperarSenha" target="_blank" class="btn btn-outline">Esqueci a Senha</a>
+                <div class="content-card">
+                    <h3 style="font-size: 1.1rem; color: var(--info-color);"><i class="fab fa-microsoft"></i> Login SGA / Microsoft</h3>
+                    <p class="small-text" style="margin-top: 10px; font-family: monospace; background: rgba(0,0,0,0.05); padding: 5px; border-radius: 5px; text-align: center; font-size: 1rem;">codigo@sga.pucminas.br</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Obrigatório o uso do <strong>@sga</strong> para:</p>
+                    <ul class="list-check" style="font-size: 0.85rem; margin-top: 10px;">
+                        <li>Canvas (Ambiente de Aprendizagem)</li>
+                        <li>Office 365 / Teams / OneDrive</li>
+                        <li>Azure Dev Tools for Teaching</li>
+                    </ul>
+                </div>
+
+                <div class="content-card" style="border-color: var(--accent-color);">
+                    <h3 style="font-size: 1.1rem; color: var(--accent-color);"><i class="fas fa-wifi"></i> Login Wi-Fi</h3>
+                    <p class="small-text" style="margin-top: 10px; font-family: monospace; background: rgba(0,0,0,0.05); padding: 5px; border-radius: 5px; text-align: center; font-size: 1rem;">codigo@pucminas.br</p>
+                    <p style="font-size: 0.9rem; margin-top: 10px;">Atenção: <strong>SEM O "SGA"</strong>. Use este formato exclusivamente para as redes sem fio do campus:</p>
+                    <ul class="list-check" style="font-size: 0.85rem; margin-top: 10px;">
+                        <li>Rede Wi-Fi <strong>PUCMinas</strong></li>
+                        <li>Rede Wi-Fi eduroam</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section class="section-block" id="canvas">
-            <div class="section-header">
-                <i class="fas fa-chalkboard-teacher icon-title canvas-color"></i>
-                <h2 class="section-title">Canvas & Microsoft 365</h2>
+            <div class="section-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+                <div class="icon-box" style="width: 50px; height: 50px;"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h2 class="section-title" style="margin: 0; border: none; padding: 0;">Canvas & Office 365</h2>
             </div>
 
             <div class="grid-2-col">
                 <div class="content-card">
                     <h3><i class="fas fa-chalkboard"></i> Canvas LMS</h3>
-                    <p>Sua sala de aula virtual. Aqui você entrega trabalhos, vê slides e faz provas online.</p>
+                    <p>Plataforma para aulas, materiais e entrega de trabalhos. O acesso é feito com as credenciais do Office 365 (<code>codigo@sga.pucminas.br</code>).</p>
                     <div class="alert-box warning" style="padding: 0.5rem; margin-top: 1rem;">
-                        <small><strong>Atenção:</strong> Verifique sempre a <strong>"Central de Avisos"</strong> e o <strong>"Catálogo dos Alunos"</strong> na disciplina da Coordenação.</small>
+                        <small><strong>Instrução Oficial:</strong> Na tela de login do Canvas, você deve clicar obrigatoriamente no botão <strong>"Fazer login com Microsoft"</strong>.</small>
                     </div>
-                    <hr>
-                    <p class="small-text"><strong>Dica Pro:</strong> Baixe o app "Canvas Student" no celular e ative as notificações para não perder prazos de T.I.</p>
                     <a href="https://canvas.pucminas.br/" target="_blank" class="btn btn-primary full-width">Acessar Canvas</a>
                 </div>
 
                 <div class="content-card">
-                    <h3><i class="fab fa-microsoft"></i> Office 365 & Email</h3>
-                    <p>Você tem direito ao Pacote Office (Word, Excel) e 1TB no OneDrive gratuitamente.</p>
-                    <hr>
-                    <p class="small-text"><strong>Importante:</strong> A PUC só envia comunicados oficiais (estágios, avisos) para o seu Outlook (@pucminas.br). Verifique semanalmente.</p>
-                    <a href="https://outlook.office.com/mail/" target="_blank" class="btn btn-outline full-width">Acessar Email</a>
+                    <h3><i class="fab fa-microsoft"></i> Office 365 Educacional</h3>
+                    <p>Acesso ao Pacote Office Online, OneNote, Microsoft Teams e armazenamento no OneDrive (<code>codigo@sga.pucminas.br</code>).</p>
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 15px 0;">
+                    <p class="small-text" style="color: var(--text-secondary);"><i class="fas fa-code"></i> <strong>Extra:</strong> Você também tem acesso gratuito a softwares pelo <em>Microsoft Azure Dev Tools For Teaching</em>. Basta usar as mesmas credenciais.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2 class="section-title">E-mail, Laboratórios e Biblioteca Virtual</h2>
+            <div class="grid-2-col">
+                <div class="content-card">
+                    <h3><i class="fab fa-google"></i> PUC Mail (Google)</h3>
+                    <p>O seu e-mail oficial (parceria Google) garante o recebimento dos comunicados da universidade.</p>
+                    <p style="background: rgba(0,0,0,0.05); padding: 10px; border-radius: 8px; font-family: monospace; font-size: 0.85rem; margin: 10px 0;">
+                        Formato: nome.sobrenome.codigo@sga.pucminas.br
+                    </p>
+                    <p class="small-text" style="color: var(--text-secondary);">É importante fazer o primeiro acesso para trocar a senha. Você pode configurar o encaminhamento automático para o seu e-mail pessoal.</p>
+                </div>
+
+                <div class="content-card">
+                    <h3><i class="fas fa-desktop"></i> Laboratórios e CAPES</h3>
+                    <p>Use apenas o seu <strong>Código de Pessoa</strong> para logar fisicamente nos laboratórios do ICEI ou acessar artigos no Portal CAPES.</p>
+                    <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 15px 0;">
+                    <p class="small-text" style="color: var(--text-secondary);"><i class="fas fa-network-wired"></i> <strong>Acesso Remoto:</strong> Para acessar os computadores da PUC remotamente da sua casa, utilize a VPN via: <code>www.icei.pucminas.br/acessoremoto</code>.</p>
                 </div>
             </div>
         </section>
 
         <section class="section-block" id="eduroam">
-            <div class="section-header">
-                <i class="fas fa-wifi icon-title"></i>
-                <h2 class="section-title">Wi-Fi Eduroam</h2>
+            <div class="section-header" style="display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem;">
+                <div class="icon-box" style="width: 50px; height: 50px;"><i class="fas fa-wifi"></i></div>
+                <h2 class="section-title" style="margin: 0; border: none; padding: 0;">Configurar Wi-Fi (PUCMinas)</h2>
             </div>
 
             <div class="content-card">
-                <p>A rede <strong>eduroam</strong> funciona na PUC e em universidades do mundo todo. A configuração exige atenção aos detalhes abaixo:</p>
+                <p>A rede oficial que os alunos utilizam diariamente no campus é a <strong>PUCMinas</strong>. A configuração é extremamente simples: basta a sua Identidade e a Senha Unificada.</p>
                 
                 <div class="table-responsive">
                     <table class="config-table">
                         <thead>
                             <tr>
-                                <th>Configuração</th>
-                                <th>Android / Windows</th>
-                                <th>iOS (iPhone)</th>
+                                <th>Campo no Telemóvel/Computador</th>
+                                <th>O que preencher</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>SSID (Nome)</strong></td>
-                                <td>eduroam</td>
-                                <td>eduroam</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Método EAP</strong></td>
-                                <td>PEAP</td>
-                                <td>Automático</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Autenticação Fase 2</strong></td>
-                                <td>MSCHAPv2</td>
-                                <td>Automático</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Certificado CA</strong></td>
-                                <td>Não validar / Usar do sistema</td>
-                                <td>Aceitar "Trust"</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Domínio</strong></td>
-                                <td>pucminas.br (se pedir)</td>
-                                <td>N/A</td>
+                                <td><strong>Rede (SSID)</strong></td>
+                                <td>PUCMinas</td>
                             </tr>
                             <tr>
                                 <td><strong>Identidade (Login)</strong></td>
-                                <td colspan="2" class="highlight-cell">codigo@pucminas.br (Obrigatório usar o @pucminas.br)</td>
+                                <td class="highlight-cell"><i class="fas fa-exclamation-circle"></i> codigo@pucminas.br</td>
                             </tr>
                             <tr>
                                 <td><strong>Senha</strong></td>
-                                <td colspan="2">Mesma do SGA/Portal</td>
+                                <td>A mesma senha unificada (SGA/Canvas)</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <div class="troubleshooting">
-                    <h4><i class="fas fa-tools"></i> Problemas Comuns:</h4>
-                    <ul>
-                        <li><strong>"Conectado, sem internet":</strong> Desligue e ligue o Wi-Fi para trocar de antena (comum ao mudar de prédio).</li>
-                        <li><strong>Erro de Autenticação:</strong> Você provavelmente esqueceu o <code>@pucminas.br</code> no login ou sua senha expirou (troque no SGA).</li>
-                    </ul>
+                <div class="alert-box info" style="margin-top: 1.5rem;">
+                    <div class="alert-icon"><i class="fas fa-info-circle"></i></div>
+                    <div class="alert-content">
+                        <h4>E a rede Eduroam?</h4>
+                        <p>A rede <em>eduroam</em> também está disponível e partilha exatamente a mesma infraestrutura e credenciais da rede PUCMinas. A diferença é que a Eduroam permite que se ligue automaticamente noutras universidades parceiras pelo mundo fora.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section-block" id="suporte">
             <h2 class="section-title">Matriz de Suporte Oficial</h2>
-            <div class="alert-box success">
-                <div class="alert-icon"><i class="fas fa-check-circle"></i></div>
-                <div class="alert-content">
-                    <h4>Dados Atualizados (Guia Prático)</h4>
-                    <p>Abaixo estão os contatos diretos para resolver problemas sem pegar fila.</p>
-                </div>
-            </div>
-            
             <div class="table-responsive">
                 <table class="config-table">
                     <thead>
                         <tr>
-                            <th>Problema</th>
-                            <th>Onde ir (Local)</th>
+                            <th>Problema a Resolver</th>
+                            <th>Onde ir (Local Físico)</th>
                             <th>E-mail Direto</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Wi-Fi / Login / Canvas</strong></td>
+                            <td><strong>Erro no Wi-Fi / Senhas / Canvas</strong></td>
                             <td>Prédio 4 - 14º Andar (CRC)</td>
-                            <td><code>crclourdes@pucminas.br</code></td>
+                            <td><a href="mailto:crclourdes@pucminas.br" style="color: var(--primary-color);">crclourdes@pucminas.br</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Matrícula / Documentos</strong></td>
+                            <td><strong>Matrícula / Documentos Oficiais</strong></td>
                             <td>Prédio 4 - Térreo (Atend. Integrado)</td>
-                            <td><code>atendimento.lourdes@pucminas.br</code></td>
+                            <td><a href="mailto:atendimento.lourdes@pucminas.br" style="color: var(--primary-color);">atendimento.lourdes@pucminas.br</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Boletos / Financeiro</strong></td>
+                            <td><strong>Boletos / Renegociação Financeira</strong></td>
                             <td>Prédio 4 - Térreo</td>
-                            <td><code>financeiro.lourdes@pucminas.br</code></td>
+                            <td><a href="mailto:financeiro.lourdes@pucminas.br" style="color: var(--primary-color);">financeiro.lourdes@pucminas.br</a></td>
                         </tr>
                         <tr>
-                            <td><strong>Bolsas / FIES / PROUNI</strong></td>
+                            <td><strong>Bolsas Sociais / FIES / PROUNI</strong></td>
                             <td>Prédio 4 - Térreo (Apoio Comunitário)</td>
-                            <td><code>comunitario.lourdes@pucminas.br</code></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Coordenação do Curso</strong></td>
-                            <td>Prédio 6 - Sala de Coordenação</td>
-                            <td><code>engenhariadesoftware.lourdes@pucminas.br</code></td>
-                        </tr>
-                         <tr>
-                            <td><strong>Emergência / Saúde</strong></td>
-                            <td>Prédio 5 - Subsolo (Posto Médico)</td>
-                            <td><code>postomedico.lourdes@pucminas.br</code></td>
+                            <td><a href="mailto:comunitario.lourdes@pucminas.br" style="color: var(--primary-color);">comunitario.lourdes@pucminas.br</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -236,13 +214,30 @@
 
     </main>
 
+    <div class="floating-whatsapp-container">
+        <div class="floating-wa-menu" id="floating-wa-menu">
+            <h4>Qual grupo quer entrar?</h4>
+            <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="wa-btn wa-manha"><i class="fas fa-sun"></i> Turma Manhã</a>
+            <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="wa-btn wa-noite"><i class="fas fa-moon"></i> Turma Noite</a>
+        </div>
+        <button class="floating-whatsapp" id="floating-wa-btn" aria-label="Grupos do WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
+
     <footer class="main-footer">
         <div class="footer-content">
             <p>&copy; 2026 DAES LOURDES - Engenharia de Software</p>
             <div class="social-links">
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/daeslourdes?igsh=MTdjcGtmaTlvOGdicg==" target="_blank" aria-label="Instagram DAES"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.pucminas.br/icei" target="_blank" aria-label="Portal ICEI" style="font-size: 1rem; font-weight: bold; margin-left: 15px;">Portal ICEI</a>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <p style="font-size: 0.85rem; margin-bottom: 0.5rem; color: var(--text-secondary);">Grupos Oficiais (Calouros 2026):</p>
+                <a href="https://chat.whatsapp.com/JXdTfJakrp5JSbbadegPo2?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Manhã</a>
+                <a href="https://chat.whatsapp.com/Cv3JvDIl1O05JNWKy044hP?mode=gi_t" target="_blank" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.75rem; margin: 0 5px;">Turma Noite</a>
             </div>
         </div>
     </footer>
