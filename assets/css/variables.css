@@ -1,103 +1,123 @@
 /* VARIABLES.CSS
-    Centraliza todas as cores, fontes e configurações de tema.
-    Alterar aqui muda o site inteiro instantaneamente.
+   Configuração Global: Tema "Student OS" (Cyberpunk & Glassmorphism)
+   Atualizado para Calouros Eng. Software 2026
 */
 
-/* Importação da fonte Outfit (Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+/* Importação de Fontes: 
+   'Outfit' para textos gerais (Moderna/Geométrica)
+   'JetBrains Mono' para títulos, códigos e números (Tech/Dev) 
+*/
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
     /* --- TIPOGRAFIA --- */
-    --font-main: 'Outfit', sans-serif; /* Fonte moderna, geométrica e tech */
+    --font-main: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
 
-    /* --- PALETA INSTITUCIONAL PUC MINAS --- */
-    --puc-blue: #003366;       /* Azul Oficial */
-    --puc-red: #990000;        /* Vermelho Oficial */
-    --puc-silver: #A2A2A2;     /* Cinza Metálico */
+    /* --- PALETA NEON & CYBER (Padrão Dark) --- */
+    --bg-body: #050505;        /* Preto Absoluto (Deep Void) */
+    --bg-blob: #7000ff;        /* Cor base para as formas flutuantes de fundo */
+    --bg-header: rgba(5, 5, 5, 0.6); /* Header ultra translúcido */
 
-    /* --- PALETA IDENTIDADE D.A. (Tech & Moderno) --- */
-    --brand-green: #00FF88;    /* Verde Neon vibrante (Estilo Cyberpunk/Tech) */
-    --brand-dark: #0B1120;     /* Azul Noturno profundo (Estilo IDE/Editor de Código) */
+    /* Cores Neon (Acentos) */
+    --neon-green: #00ff9d;     /* Ação Principal / Sucesso */
+    --neon-blue: #00f3ff;      /* Informação / Tech */
+    --neon-pink: #ff0055;      /* Erro / Destaque Agressivo */
+    --neon-purple: #bc13fe;    /* Secundária / Magic */
+    --neon-yellow: #fcee0a;    /* Alerta / Atenção */
 
-    /* --- VARIÁVEIS SEMÂNTICAS --- */
-    --primary-color: var(--puc-blue);
-    --secondary-color: var(--puc-red);
-    --accent-color: var(--brand-green);
+    /* --- VARIÁVEIS SEMÂNTICAS (Mapeamento) --- */
+    --primary-color: var(--neon-green);
+    --secondary-color: var(--neon-purple);
+    --accent-color: var(--neon-blue);
     
-    /* Cores de Feedback */
-    --success-color: #10B981;  /* Verde Sucesso (Emerald) */
-    --warning-color: #F59E0B;  /* Laranja Alerta (Amber) */
-    --danger-color: #EF4444;   /* Vermelho Erro (Red) */
-    --info-color: #3B82F6;     /* Azul Informação (Blue) */
+    /* Textos */
+    --text-main: #ffffff;
+    --text-secondary: #94a3b8; /* Slate-400 */
+    --text-inverse: #050505;   /* Texto preto para botões neon */
 
-    /* --- TEMA CLARO (Moderno / Slate) --- */
-    --bg-body: #F8FAFC;        /* Cinza muito subtil (Slate-50), menos agressivo que branco */
-    --bg-card: #FFFFFF;        /* Fundo dos cartões */
-    --bg-header: rgba(255, 255, 255, 0.85); /* Translúcido para efeito de vidro (Glassmorphism) */
+    /* Bordas e Divisórias Sutis */
+    --border-color: rgba(255, 255, 255, 0.1);
     
-    --text-main: #1E293B;      /* Azul escuro (Slate-800) para melhor legibilidade */
-    --text-secondary: #64748B; /* Cinza médio (Slate-500) */
-    --text-inverse: #FFFFFF;   /* Texto em fundos escuros */
+    /* Cores de Feedback (Gamificadas) */
+    --success-color: var(--neon-green);
+    --warning-color: var(--neon-yellow);
+    --danger-color: var(--neon-pink);
+    --info-color: var(--neon-blue);
 
-    --border-color: #E2E8F0;   /* Linhas subtis (Slate-200) */
+    /* --- SISTEMA GLASSMORPHISM (O Efeito de Vidro) --- */
+    --glass-bg: rgba(255, 255, 255, 0.03);      /* Fundo do vidro */
+    --glass-border: rgba(255, 255, 255, 0.08);  /* Borda fina do vidro */
+    --glass-blur: blur(16px);                   /* Desfoque de fundo */
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Sombra difusa */
+
+    /* Variável para cartões que precisam de mais contraste */
+    --bg-card: var(--glass-bg); 
+
+    /* --- UI & ANIMAÇÕES --- */
+    --radius: 24px;            /* Cantos super arredondados (Estilo iOS/macOS Big Sur) */
+    --shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
     
-    /* --- EFEITOS VISUAIS & UI --- */
-    --radius: 16px;            /* Cantos mais arredondados e amigáveis */
-    --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05); /* Sombra difusa e elegante */
-    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    --glow: 0 0 20px rgba(0, 255, 136, 0.4); /* Brilho neon levemente aumentado para mais destaque */
+    /* Glow Neon Padrão */
+    --glow: 0 0 20px rgba(0, 255, 157, 0.2);
     
-    /* Transição mais elástica para dar o efeito dinâmico pedido */
-    --transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    /* Transição ultra suave e elástica */
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* --- TEMA ESCURO (DARK MODE "MIDNIGHT") --- */
-[data-theme="dark"] {
+/* --- LIGHT MODE ("Daylight OS") --- */
+/* Mantido como opcional, mas com estética limpa/tech em vez de escritório antigo */
+[data-theme="light"] {
+    --bg-body: #e0e6ed;        /* Cinza azulado claro */
+    --bg-blob: #3b82f6;
+    --bg-header: rgba(255, 255, 255, 0.7);
+
+    --primary-color: #0066ff;  /* Azul Tech Vibrante */
+    --secondary-color: #7c3aed;
+    --accent-color: #00c4cc;
+
+    --text-main: #1e293b;      /* Slate-800 */
+    --text-secondary: #64748b; /* Slate-500 */
+    --text-inverse: #ffffff;
+
+    --border-color: rgba(0, 0, 0, 0.08);
+
+    /* Vidro no modo claro é mais leitoso/branco */
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
     
-    /* Redefinindo Cores de Fundo (Estilo VS Code / Tailwind Dark) */
-    --bg-body: #0B1120;        /* Azul Profundo (Midnight) */
-    --bg-card: #1E293B;        /* Azul Acinzentado (Slate-800) */
-    --bg-header: rgba(30, 41, 59, 0.85); /* Translúcido */
+    --bg-card: var(--glass-bg);
     
-    /* Redefinindo Textos */
-    --text-main: #F1F5F9;      /* Branco acinzentado (Slate-100) - não cansa a vista */
-    --text-secondary: #94A3B8; /* Cinza claro (Slate-400) */
-    
-    /* Ajuste de Bordas e Sombras */
-    --border-color: #334155;   /* Slate-700 */
-    --shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra um pouco mais forte no escuro */
-    
-    /* Cores ajustadas para contraste no escuro */
-    --primary-color: #38BDF8;  /* Azul Ciano (Sky-400) - brilha mais no fundo escuro */
-    --secondary-color: #FF6B6B;/* Vermelho pastel */
-    --accent-color: #00FF88;   /* Verde Neon mantém-se vibrante */
+    --neon-green: #10b981;     /* Ajuste de contraste para fundo claro */
+    --neon-pink: #ef4444;
 }
 
-/* --- TEMA EASTER EGG (MUNDO INVERTIDO / STRANGER THINGS) --- */
-/* Este tema será ativado via JavaScript quando o utilizador descobrir o segredo */
+/* --- EASTER EGG: MUNDO INVERTIDO (Stranger Things Theme) --- */
+/* Ativado via console ou comandos secretos na busca */
 [data-theme="upside-down"] {
+    --bg-body: #0a0000;        /* Vermelho/Preto Profundo */
+    --bg-blob: #ff0000;
+    --bg-header: rgba(20, 0, 0, 0.8);
     
-    /* Cores de fundo sombrias e asfixiantes */
-    --bg-body: #050000;        /* Quase preto, com um toque de vermelho (Sangue seco) */
-    --bg-card: #140000;        /* Vermelho incrivelmente escuro para os cartões */
-    --bg-header: rgba(20, 0, 0, 0.85); 
+    --text-main: #ffb3b3;      /* Carne pálida */
+    --text-secondary: #802b2b; /* Sangue seco */
+    --text-inverse: #000000;
     
-    /* Textos distorcidos */
-    --text-main: #FFB3B3;      /* Um rosa/vermelho pálido e doentio */
-    --text-secondary: #802B2B; /* Vermelho escuro desbotado */
+    --primary-color: #ff0000;
+    --secondary-color: #8a0000;
+    --accent-color: #ff4500;   /* Laranja brasa */
     
-    /* Ajuste de Bordas e Sombras (Brilho ameaçador) */
-    --border-color: #4D0000;   /* Borda vermelho sangue escuro */
-    --shadow: 0 4px 15px rgba(255, 0, 0, 0.3); /* Sombra vermelha brilhante */
-    --glow: 0 0 25px rgba(255, 69, 0, 0.6);    /* Brilho laranja incandescente */
+    /* Tudo vira variações de vermelho e perigo */
+    --neon-green: #ff0000;
+    --neon-blue: #ff0000;
+    --neon-pink: #8a0000;
+    --neon-purple: #ff4500;
     
-    /* Cores agressivas */
-    --primary-color: #FF0000;  /* Vermelho absoluto e violento */
-    --secondary-color: #B30000;/* Vermelho mais escuro */
-    --accent-color: #FF4500;   /* Laranja neon (Lembrando fogo/faíscas) */
+    --glass-bg: rgba(255, 0, 0, 0.05);
+    --glass-border: rgba(255, 0, 0, 0.3);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
     
-    /* Cores de Feedback (Tudo no Mundo Invertido é perigoso) */
-    --success-color: #FF4500;  
-    --warning-color: #FF0000;  
-    --info-color: #B30000;     
+    --glow: 0 0 30px rgba(255, 0, 0, 0.6);
+    --radius: 4px; /* Cantos agressivos/pontiagudos */
 }
