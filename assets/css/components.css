@@ -379,7 +379,10 @@
 .table-responsive {
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
-    overflow: hidden;
+    /* ATUALIZADO PARA RESPONSIVIDADE */
+    overflow-x: auto; 
+    display: block;
+    -webkit-overflow-scrolling: touch; 
 }
 
 .config-table {
@@ -387,6 +390,7 @@
     border-collapse: collapse;
     font-family: var(--font-mono);
     font-size: 0.9rem;
+    min-width: 500px; /* Garante que a tabela não esmague em telas pequenas */
 }
 
 .config-table th {
@@ -444,4 +448,43 @@
 }
 .floating-whatsapp-container.active .floating-wa-menu {
     opacity: 1; visibility: visible; transform: translateY(0);
+}
+
+/* --- 9. MOBILE FIXES & GRID OVERRIDES (ADICIONADO) --- */
+@media (max-width: 768px) {
+    /* 1. Transforma o Grid Principal em Coluna Única */
+    .bento-grid {
+        gap: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2. Garante que os cards ocupem 100% da largura */
+    .bento-item, .hero-card, .wifi-card {
+        grid-column: span 1 !important;
+        width: 100%;
+    }
+
+    /* 3. Reduz padding interno para ganhar espaço */
+    .bento-item, .card {
+        padding: 1.25rem;
+    }
+
+    /* 4. FIX CRÍTICO: DETECTA E SOBRESCREVE GRIDS INTERNOS */
+    /* Isso procura qualquer div dentro de um bento-item ou card que tenha 
+       'grid-template-columns' definido inline no HTML e força a ser 1 coluna */
+    
+    .bento-item [style*="grid-template-columns"],
+    .hero-card [style*="grid-template-columns"],
+    .card [style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important; /* Mantém um respiro entre os itens empilhados */
+    }
+
+    /* Ajuste específico para garantir que divs filhas não quebrem */
+    .hero-card > div, 
+    .bento-item > div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }

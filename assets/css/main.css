@@ -246,11 +246,61 @@ body {
     50% { opacity: 0; }
 }
 
-/* --- 7. RESPONSIVIDADE --- */
+/* --- 7. RESPONSIVIDADE (PADRÃO) --- */
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.5rem; }
-    .main-header { padding: 0 1.5rem; }
+    /* A regra de padding original foi movida para a seção 8 para centralizar a manutenção */
+}
+
+/* --- 8. MOBILE FIXES & UTILITIES (ADICIONADO PARA CORREÇÃO) --- */
+
+/* Por padrão, esconde elementos exclusivos de mobile no Desktop */
+.mobile-only {
+    display: none !important;
+}
+
+/* Regras para Celulares e Tablets (telas até 768px) */
+@media (max-width: 768px) {
     
-    /* Em mobile, reduzimos o padding lateral */
-    .container { padding: 0 1.25rem; }
+    /* Mostra o botão de menu (hambúrguer) se tiver a classe .mobile-only */
+    .mobile-only {
+        display: flex !important;
+    }
+
+    /* Reduz a altura do header para ganhar espaço */
+    .main-header {
+        height: 65px;
+        padding: 0 1rem;
+    }
+
+    /* Ajusta o logo para não ocupar muito espaço */
+    .logo-text {
+        font-size: 0.9rem;
+    }
+    .logo-img {
+        height: 35px;
+    }
+
+    /* IMPORTANTE: Sobrescreve o 'margin-top: 4rem' inline das páginas e ajusta padding lateral */
+    .container {
+        margin-top: 1.5rem !important;
+        padding: 0 1.25rem;
+    }
+
+    /* Ajuste de tamanho de fonte dos títulos */
+    .section-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Remove o efeito de hover "pulo" no mobile para evitar toques acidentais e problemas de layout */
+    .bento-item:hover, .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Ajuste de espaçamento do rodapé */
+    .main-footer {
+        padding-bottom: 7rem; /* Garante espaço para o botão do WhatsApp */
+    }
 }
