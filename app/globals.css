@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: 5 5 7;
+  --foreground: 246 249 255;
+  --muted: 148 163 184;
+  --glass: 255 255 255;
+  --border: 255 255 255;
+  --primary: 0 255 157;
+  --secondary: 188 19 254;
+  --accent: 0 243 255;
+  --danger: 255 0 85;
+  --warning: 252 238 10;
+  --success: 0 255 157;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: 226 232 240;
+  --foreground: 15 23 42;
+  --muted: 71 85 105;
+  --glass: 255 255 255;
+  --border: 15 23 42;
+  --primary: 0 102 255;
+  --secondary: 124 58 237;
+  --accent: 0 174 188;
+  --danger: 239 68 68;
+  --warning: 202 138 4;
+  --success: 16 185 129;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: rgb(var(--background));
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(120deg, rgb(var(--primary) / 0.06), transparent 34%, rgb(var(--accent) / 0.05) 68%, transparent),
+    linear-gradient(180deg, rgb(var(--background)), rgb(var(--background)));
+  color: rgb(var(--foreground));
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgb(var(--primary) / 0.28);
+  color: rgb(var(--foreground));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border) / 0.16);
+  border: 3px solid rgb(var(--background));
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.82);
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-panel {
+    @apply rounded-lg border border-white/10 bg-white/[0.045] shadow-panel backdrop-blur-2xl;
+  }
+
+  .glass-panel-strong {
+    @apply rounded-lg border border-white/15 bg-white/[0.07] shadow-panel backdrop-blur-2xl;
+  }
+
+  .terminal-label {
+    @apply font-mono text-xs text-primary;
+  }
+
+  .interactive-ring {
+    @apply outline-none transition duration-300 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  .scanline {
+    @apply pointer-events-none absolute inset-0 overflow-hidden rounded-lg;
+  }
+
+  .scanline::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    height: 42%;
+    background: linear-gradient(180deg, transparent, rgb(var(--primary) / 0.08), transparent);
+    animation: scan 4.5s linear infinite;
+  }
+
+  .hero-video-mask {
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 0%, #000 42%, transparent 72%);
+    mask-image: radial-gradient(ellipse at center, #000 0%, #000 42%, transparent 72%);
+  }
+}
